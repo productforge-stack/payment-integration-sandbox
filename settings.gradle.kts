@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "payment-integration-sandbox"
-include(":payments-core")
+include(":payments-core", ":app")
