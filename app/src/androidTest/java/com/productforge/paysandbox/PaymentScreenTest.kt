@@ -77,8 +77,9 @@ class PaymentScreenTest {
         compose.onNodeWithTag("sale").performClick()
 
         scrollUntilShown("Needs reconciliation")
-        scrollUntilShown("Reconcile key")
-        compose.onNodeWithText("Reconcile key", substring = true).assertExists()
+        // The summary, not the step log, is what the clerk acts on.
+        scrollUntilShown("before charging again")
+        compose.onNodeWithText("before charging again", substring = true).assertExists()
     }
 
     @Test
