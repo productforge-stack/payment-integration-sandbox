@@ -44,7 +44,7 @@ When you don't get a clear answer (timeout, dropped connection, 5xx), you don't 
 4. Lookup also fails: retry the lookup a few times (`maxRecoveryAttempts`, default 3).
 5. Still unknown: stop. Show "needs reconciliation" with the key, and don't take payment again until it's resolved.
 
-`PaymentService` implements exactly this, and `PaymentServiceTest` checks that the gateway is asked to charge once in every case.
+`PaymentService` implements exactly this. `PaymentServiceTest` asserts the exact sequence of submits and lookups for each failure path, and `GatewaySimulatorTest` checks the card is charged once end to end.
 
 ## Using the library
 
